@@ -1,0 +1,17 @@
+header {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--secondary-color);
+
+  .logo {
+    margin-left: 50px;
+  }
+
+  h1 {
+    font-size: 100px;
+    font-style: italic;
+  }
+
+}
