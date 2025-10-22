@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './new-todo-item-button.scss'
 })
 export class NewTodoItemButton {
-
 }
