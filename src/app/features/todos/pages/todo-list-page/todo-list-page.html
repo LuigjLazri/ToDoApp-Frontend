@@ -1,1 +1,47 @@
-<p>todo-list-page works!</p>
+
+<div cdkDropList
+     id="list"
+     [cdkDropListConnectedTo]="['trash']"
+   [cdkDropListData]="todos"
+   (cdkDropListDropped)="drop($event)"
+   class="todo-list">
+@for (item of todos; track item.id) {
+  <div class="todo-item-container" cdkDrag
+       [cdkDragData]="item"
+       [ngClass]="{
+        'status-very-important': item.status === 'very important',
+        'status-important': item.status === 'important',
+        'status-normal': item.status === 'normal',
+        'status-not-important': item.status === 'not important'
+        }">
+    <div class="todo-components-container">
+      <label class="checkbox-container">
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+
+      <div>
+        <h2 class="title"> {{ item.title }}</h2>
+        <p class="description">{{ item.description }}</p>
+      </div>
+
+      <div class="deadline">
+        <h3 class="deadline-date">{{ item.deadline.toDateString()}}</h3>
+        <h3 class="deadline-time">{{ item.deadline.getHours() + ':' + item.deadline.getMinutes().toString()}}</h3>
+      </div>
+    </div>
+
+  </div>
+}
+</div>
+
+<div
+  cdkDropList
+  id="trash"
+  [cdkDropListConnectedTo]="['list']"
+  [cdkDropListData]="todos"
+  (cdkDropListDropped)="deleteItem($event)"
+  class="trash-bin"
+>
+  🗑️
+</div>

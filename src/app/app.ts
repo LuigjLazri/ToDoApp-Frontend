@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import {Backend} from './core/services/backend';
 import {Header} from './core/layout/header/header';
 import {Footer} from './core/layout/footer/footer'
+import {TodoListPage} from './features/todos/pages/todo-list-page/todo-list-page';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer],
+  imports: [RouterOutlet, Header, Footer, TodoListPage],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
