@@ -3,11 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import {Backend} from './core/services/backend';
 import {Header} from './core/layout/header/header';
 import {Footer} from './core/layout/footer/footer'
-import {TodoListPage} from './features/todos/pages/todo-list-page/todo-list-page';
+import {LogoutBtn} from './shared/components/logout-btn/logout-btn';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer, TodoListPage],
+  imports: [RouterOutlet, Header, Footer, LogoutBtn],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

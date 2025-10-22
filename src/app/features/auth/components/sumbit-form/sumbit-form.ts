@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 
 @Component({
@@ -27,7 +26,10 @@ export class SumbitForm {
       username: this.username,
       password: this.password
     };
-    return this.http.post<{token: string}>('${this.apiUrl}/auth/login', loginRequest)
+    return this.http.post<{token: string}>(`${this.apiUrl}/auth/login`, {
+      username: this.username,
+      password: this.password
+    })
       .subscribe({
         next: (response) => {
           localStorage.setItem('token', response.token);

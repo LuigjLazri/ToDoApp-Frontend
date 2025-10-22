@@ -22,11 +22,20 @@ form {
 
   input {
     margin: 5px;
+    padding-left: 10px;
     background: lightblue;
+    border-radius: 10px;
+    box-shadow: 2px 2px inset gray;
+
+    &::placeholder {
+      color: black;
+    }
   }
 
   button {
     margin: 5px;
+    border-radius: 10px;
+    box-shadow: 2px 2px inset;
   }
 
   .error {
