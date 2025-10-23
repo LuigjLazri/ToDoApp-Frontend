@@ -5,26 +5,23 @@ export class TodoItemModel {
   id: number;
   title: string;
   description: string;
-  deadline: Date;
-  isDone: boolean;
+  completed: boolean;
   status: Status;
 
   constructor(
     title: string,
     description: string,
-    deadline: Date,
     status: Status = 'normal',
-    isDone: boolean = false
+    completed: boolean = false
   ) {
     this.id = TodoItemModel.nextId++;
     this.title = title;
     this.description = description;
-    this.deadline = deadline;
     this.status = status;
-    this.isDone = isDone;
+    this.completed = completed;
   }
 
   switchIsDone() {
-    this.isDone = !this.isDone;
+    this.completed = !this.completed;
   }
 }
