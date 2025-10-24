@@ -124,3 +124,62 @@
 .cdk-drag-placeholder {
   opacity: 0;
 }
+
+.center {
+  margin: 20px 0;
+  padding: 10px;
+  background: (var(--secondary-color));
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px black;
+  border-radius: 25px;
+
+  form {
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    input  {
+      padding-left: 10px;
+      background: var(--primary-color);
+      margin: 10px 0;
+      width: 200px;
+    }
+
+    textarea  {
+      padding-left: 10px;
+      background: var(--primary-color);
+      margin: 10px 0;
+      width: 200px;
+    }
+    select  {
+      padding-left: 10px;
+      background: var(--primary-color);
+      margin: 10px 0;
+      width: 200px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      button {
+        margin-bottom: 10px;
+        background: none;
+        width: 50px;
+        border-radius: 10px;
+        transition-duration: 400ms;
+        &:hover {
+          background: red;
+          cursor: pointer;
+        }
+      }
+    }
+
+  }
+}
+

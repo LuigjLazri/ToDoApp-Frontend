@@ -4,6 +4,8 @@ import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray} from '@angular/cdk/d
 import {NgClass} from '@angular/common';
 import {TodoService} from '../../../../core/services/TodoService';
 import {Status} from '../../../../models/todo-status';
+import {NewTodoItemButton} from '../../components/new-todo-item-button/new-todo-item-button';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-todo-list-page',
@@ -11,16 +13,18 @@ import {Status} from '../../../../models/todo-status';
     CdkDropList,
     CdkDrag,
     NgClass,
+    NewTodoItemButton,
+    FormsModule,
   ],
   templateUrl: './todo-list-page.html',
   styleUrl: './todo-list-page.scss'
 })
 export class TodoListPage {
   todos: TodoItemModel[] = [];
-
-  newTitle = '';
-  newDescription = '';
-  newStatus: Status = 'normal';
+  modalOpen = false;
+  newTitle = 'title';
+  newDescription = 'descrption';
+  newStatus: Status = 'important';
 
   constructor(private todoService: TodoService) {}
 
@@ -40,6 +44,7 @@ export class TodoListPage {
       alert('Title is required.');
       return;
     }
+
     const newTodo = new TodoItemModel(
       this.newTitle,
       this.newDescription,
@@ -50,13 +55,12 @@ export class TodoListPage {
     this.todoService.addTodo(newTodo).subscribe({
       next: (savedTodo) => {
         this.todos.push(savedTodo);
-        this.resetForm();
       },
       error: (err) => console.error('Error adding todo:', err)
     });
   }
 
-  private resetForm(): void {
+  resetForm(): void {
     this.newTitle = '';
     this.newDescription = '';
     this.newStatus = 'normal';
@@ -68,14 +72,23 @@ export class TodoListPage {
   }
 
   deleteItem(event: CdkDragDrop<TodoItemModel[]>) {
-    const draggedItem = event.item.data as TodoItemModel;
-    console.log("id: " + draggedItem.id)
-    console.log("title: " + draggedItem.title)
+    if (event.container.id !== 'trash') return;
+    const todo = event.item.data as TodoItemModel;
+    if (todo?.id == null) {
+      console.warn('Todo has no id, cannot delete.');
+      return;
+    }
 
-    if (!draggedItem) return;
-
-    this.todos = this.todos.filter(todo => todo.id !== draggedItem.id);
+    this.todoService.deleteTodo(todo).subscribe({
+      next: () => {
+        this.todos = this.todos.filter(t => t.id !== todo.id);
+      },
+      error: (err) => {
+        console.error('delete failed', err);
+      }
+    });
   }
 
-
+  openCloseModal() { this.modalOpen = !this.modalOpen; }
+  closeModal() { this.modalOpen = false; }
 }

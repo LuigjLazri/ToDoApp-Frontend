@@ -23,6 +23,11 @@ export class TodoService {
     return this.http.post<TodoItemModel>(this.apiUrl, todo, { headers });
   }
 
+  deleteTodo(todo: TodoItemModel) {
+    const headers = this.getAuthHeaders();
+    return this.http.delete<void>(`${this.apiUrl}/${todo.id}`, { headers });
+  }
+
   private getAuthHeaders(): HttpHeaders {
     const basicAuth = localStorage.getItem("BasicAuth") ?? "";
     console.log("BASIC AUTH: "+ basicAuth)

@@ -1,0 +1,12 @@
+.new-todo-btn {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  transition-duration: 400ms;
+
+  &:hover {
+    background: red;
+    scale: 1.1;
+  }
+}
