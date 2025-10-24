@@ -24,14 +24,11 @@ export class TodoService {
   }
 
   private getAuthHeaders(): HttpHeaders {
-    const username = 'user';
-    const password = 'password';
-    const basicAuth = 'Basic ' + btoa(`${username}:${password}`);
-
-    console.log(basicAuth);
+    const basicAuth = localStorage.getItem("BasicAuth") ?? "";
+    console.log("BASIC AUTH: "+ basicAuth)
 
     return new HttpHeaders({
-      'Authorization': basicAuth,
+      'Authorization': basicAuth
     });
   }
 

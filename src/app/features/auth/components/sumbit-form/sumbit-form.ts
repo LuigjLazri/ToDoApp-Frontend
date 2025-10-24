@@ -22,10 +22,6 @@ export class SumbitForm {
   constructor(private http: HttpClient, private router: Router) {}
 
   login() {
-    const loginRequest = {
-      username: this.username,
-      password: this.password
-    };
     return this.http.post<{token: string}>(`${this.apiUrl}/auth/login`, {
       username: this.username,
       password: this.password
@@ -33,6 +29,7 @@ export class SumbitForm {
       .subscribe({
         next: (response) => {
           localStorage.setItem('token', response.token);
+          localStorage.setItem("BasicAuth", "Basic " + btoa(this.username + ':' + this.password));
           this.router.navigate(['/todo-list']);
         },
         error: err => {
