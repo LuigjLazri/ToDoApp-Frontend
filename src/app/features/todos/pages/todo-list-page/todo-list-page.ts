@@ -23,7 +23,7 @@ export class TodoListPage {
   todos: TodoItemModel[] = [];
   modalOpen = false;
   newTitle = 'title';
-  newDescription = 'descrption';
+  newDescription = 'description';
   newStatus: Status = 'important';
 
   constructor(private todoService: TodoService) {}

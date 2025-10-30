@@ -1,7 +1,6 @@
 :root {
   --primary-color: #cefeff;
   --secondary-color: #92d5ff;
-  --text-color: #000000;
 }
 
 * {
@@ -12,8 +11,9 @@
 }
 
 body, html {
-  background-color: var(--primary-color);
   scroll-behavior: smooth;
+  background: linear-gradient(to bottom right, rgba(0, 178, 255, 0.8), rgba(0, 72, 112, 0.8)) padding-box;;
+  min-height: 100vh;
 }
 
 ::-webkit-scrollbar {

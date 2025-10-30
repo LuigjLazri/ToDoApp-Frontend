@@ -4,9 +4,8 @@
   right: 20px;
   width: 100px;
   height: 100px;
-  border: 3px dashed red;
   border-radius: 12px;
-  background: #ffe6e6;
+  background: transparent;
   color: #000;
   text-align: center;
   line-height: 100px;
@@ -14,16 +13,16 @@
   z-index: 1000;
   flex-shrink: 0; /* 🔒 prevents it from resizing */
   pointer-events: auto; /* allows drop but avoids flex movement */
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .trash-bin.cdk-drop-list-dragging {
-  background: #ffcccc;
+  background: #ff0000;
   transform: scale(1.1);
 }
 
 .trash-bin.cdk-drop-list-receiving {
-  background: #ffb3b3;
+  background: #ff0000;
 }
 
 .cdk-drag-preview {
@@ -60,9 +59,10 @@
   max-width: 400px;
   min-height: 100px;
   border-radius: 30px;
-  border: 2px solid black;
   display: flex;
   justify-content: center;
+  border: none;
+  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.5), inset -2px -2px 4px rgba(0, 0, 0, 0.5);
 
   .todo-components-container {
     width: calc(90%);
@@ -134,8 +134,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid 2px black;
   border-radius: 25px;
+  border: none;
+  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.5), inset -2px -2px 4px rgba(0, 0, 0, 0.5);
+
 
   form {
     align-self: center;
@@ -149,6 +151,9 @@
       background: var(--primary-color);
       margin: 10px 0;
       width: 200px;
+      box-shadow:  2px 2px 4px rgba(255, 255, 255, 0.5), -2px -2px 4px rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+
     }
 
     textarea  {
@@ -156,18 +161,25 @@
       background: var(--primary-color);
       margin: 10px 0;
       width: 200px;
+      box-shadow:  2px 2px 4px rgba(255, 255, 255, 0.5), -2px -2px 4px rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+
     }
     select  {
       padding-left: 10px;
       background: var(--primary-color);
       margin: 10px 0;
       width: 200px;
+      box-shadow:  2px 2px 4px rgba(255, 255, 255, 0.5), -2px -2px 4px rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
     }
 
     .actions {
       display: flex;
       justify-content: space-between;
       button {
+        border: none;
+        box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.5), inset -2px -2px 4px rgba(0, 0, 0, 0.5);
         margin-bottom: 10px;
         background: none;
         width: 50px;
