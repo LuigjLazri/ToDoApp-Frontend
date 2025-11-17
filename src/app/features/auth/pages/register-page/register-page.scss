@@ -1,0 +1,61 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  margin: 50px;
+  padding: 30px;
+  background: var(--secondary-color);
+  border-radius: 15px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.5), inset -2px -2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to bottom right, rgba(0, 165, 255, 0.8), rgba(0, 139, 214, 0.8)) padding-box;;
+
+
+
+  h2 {
+    margin: 5px;
+    justify-self: center;
+    align-self: center;
+  }
+
+  input {
+    margin: 5px;
+    padding-left: 10px;
+    background: lightblue;
+    border-radius: 10px;
+    box-shadow:  2px 2px 4px rgba(255, 255, 255, 0.5), -2px -2px 4px rgba(0, 0, 0, 0.5);
+
+    &::placeholder {
+      color: black;
+    }
+  }
+
+  button {
+    margin: 5px;
+    padding: 5px 25px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.5), inset -2px -2px 4px rgba(0, 0, 0, 0.5);
+
+  }
+
+  a {
+    text-decoration: none;
+    color: grey;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  .error {
+    color: red;
+  }
+
+}
