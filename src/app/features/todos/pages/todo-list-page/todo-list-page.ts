@@ -6,6 +6,7 @@ import {TodoService} from '../../../../core/services/TodoService';
 import {Status} from '../../../../models/todo-status';
 import {NewTodoItemButton} from '../../components/new-todo-item-button/new-todo-item-button';
 import {FormsModule} from '@angular/forms';
+import {LogoutBtn} from '../../../../shared/components/logout-btn/logout-btn';
 
 @Component({
   selector: 'app-todo-list-page',
@@ -15,6 +16,7 @@ import {FormsModule} from '@angular/forms';
     NgClass,
     NewTodoItemButton,
     FormsModule,
+    LogoutBtn,
   ],
   templateUrl: './todo-list-page.html',
   styleUrl: './todo-list-page.scss'

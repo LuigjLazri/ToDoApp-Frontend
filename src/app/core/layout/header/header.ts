@@ -4,7 +4,7 @@ import {NgOptimizedImage} from '@angular/common';
 @Component({
   selector: 'app-header',
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss'
