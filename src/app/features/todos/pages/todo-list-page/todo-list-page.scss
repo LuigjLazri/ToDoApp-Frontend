@@ -178,11 +178,12 @@
       display: flex;
       justify-content: space-between;
       button {
+        padding: 10px;
         border: none;
         box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.5), inset -2px -2px 4px rgba(0, 0, 0, 0.5);
         margin-bottom: 10px;
         background: none;
-        width: 50px;
+        max-width: 70px;
         border-radius: 10px;
         transition-duration: 400ms;
         &:hover {
